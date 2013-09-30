@@ -75,14 +75,14 @@
 
 <b>Features——本配置的特性</b>
 
-    1、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），高亮显示
-       行尾的空白。
+    1、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），高亮
+       显示行尾的空白。
        
-    2、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），在保存文
-       件时删除行尾的空白。
+    2、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），在保
+       存文件时删除行尾的空白。
        
-    3、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），自动格式
-       化从Emacs编辑器外拷贝进来的代码。
+    3、默认对一些模式（如：C-mode、C++-mode、python-mode、js-mode、html-mode、xml-mode、ruby-mode等），自动
+       格式化从Emacs编辑器外拷贝进来的代码。
 
     4、额外实现的小功能及其快捷键绑定：
     
@@ -142,7 +142,6 @@
       （15）换行符（LF、CRLF、CR）互相转换————这个是Emacs内建的快捷键
            C-x RET f CODING RET       如果 CODING 为 unix、dos 或 mac，则相应的改变当前缓冲区中换行符为LF、
                                       CRLF、CR。
-
 
     5、一些没有绑定快捷键的小功能：
       M-x my-indent-or-complete    如果当前光标在单词中间就对齐，否则就TAB。
