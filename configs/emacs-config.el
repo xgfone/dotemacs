@@ -126,14 +126,14 @@
 ;; ----------------------------------------------------------------------------
 ;; --------------------------------- header2 ----------------------------------
 ;; Support for creation and update of file headers.
-(require 'header2)
-(add-hook 'emacs-lisp-mode-hook 'auto-make-header)
-;(add-hook 'c-mode-hook 'auto-make-header)
-(add-hook 'c-mode-common-hook 'auto-make-header)
-(add-hook 'c++-mode-hook 'auto-make-header)
-(add-hook 'python-mode-hook 'auto-make-header)
-;(add-hook 'python2-mode-hook 'auto-make-header)
-;(add-hook 'python3-mode-hook 'auto-make-header)
+;; (require 'header2)
+;; (add-hook 'emacs-lisp-mode-hook 'auto-make-header)
+;; ;(add-hook 'c-mode-hook 'auto-make-header)
+;; (add-hook 'c-mode-common-hook 'auto-make-header)
+;; (add-hook 'c++-mode-hook 'auto-make-header)
+;; (add-hook 'python-mode-hook 'auto-make-header)
+;; ;(add-hook 'python2-mode-hook 'auto-make-header)
+;; ;(add-hook 'python3-mode-hook 'auto-make-header)
 
 ;; ------------------------------- END ----------------------------------------
 ;; ****************************************************************************
