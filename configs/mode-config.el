@@ -215,25 +215,12 @@ PROPS are additional properties."
 
 ;;{{{ =========================================================================
 ;;{{{ ---------------------------- Python Mode --------------------------------
-(add-to-list 'load-path "~/.dotemacs/lisps/python-mode/")
-(add-to-list 'load-path "~/.dotemacs/lisps/python-mode/completion/")
-(add-to-list 'load-path "~/.dotemacs/lisps/python-mode/test/")
-(add-to-list 'load-path "~/.dotemacs/lisps/python-mode/extensions/")
-(setq py-install-directory "~/.dotemacs/lisps/python-mode/")
-(require 'python-mode)
-(require 'doctest-mode)
-(require 'highlight-indentation)
+;; Use the configure package "emacs-for-python" instead of python-mode.
+;; "emacs-for-python" is the collection of emacs extensions specifically
+;; collected for python development, with workflow guidelines!
 
-(require 'column-marker)
-(add-hook 'foo-mode-hook (lambda () (interactive) (column-marker-1 80)))
-(global-set-key [?\C-c ?m] 'column-marker-1)
-
-(require 'py-smart-operator)
-;; `M-x smart-operator-mode' for toggling this minor mode.
-(py-smart-operator-mode t)
-
-;;(require 'pycomplete)
-(setq py-load-pymacs-p t)
+(add-to-list 'load-path "~/.dotemacs/lisps/emacs-for-python/")
+(load "epy-init.el")
 
 ;;}}} =========================================================================
 
