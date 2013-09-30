@@ -218,7 +218,7 @@ ARG is positive, otherwise deactivate it."
           '(sh-mode-hook emacs-lisp-mode-hook f90-mode-hook fortran-mode-hook
             awk-mode-hook change-log-mode-hook c-mode-hook c++-mode-hook
             python-mode-hook ruby-mode-hook plain-tex-mode-hook html-mode-hook
-            text-mode xml-mode-hook js-mode-hook)))
+            text-mode xml-mode-hook js-mode-hook js2-mode-hook)))
 
 ;; ----------------------------------------------------------------------------
 
@@ -236,7 +236,7 @@ Return values are suitable for use with `write-file-functions'."
         (when (memq major-mode '(text-mode sh-mode emacs-lisp-mode f90-mode
                                  awk-mode c-mode c++-mode change-log-mode
                                  python-mode ruby-mode html-mode xml-mode
-                                 plain-tex-mode js-mode))
+                                 plain-tex-mode js-mode js2-mode))
           (message "Cleaning up whitespace...")
           (delete-trailing-whitespace)
           (message "Cleaning up whitespace... Done")
