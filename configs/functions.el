@@ -299,12 +299,42 @@ With optional argument ARG, use \"*Created: -- *\" format."
 
 
 ;;{{{ ========================================================================
+;; 快速打开手册
+(defun my-open-learning-note()
+  (interactive)
+  (find-file "~/.dotemacs/docs/Emacs.Learning.Notes.txt"))
+(global-set-key (kbd "C-v C-n") 'my-open-learning-note)
+;;}}} ================================= END ===================================
+
+
+
+;;{{{ ========================================================================
+;; 快速打开README.md
+(defun my-open-readme ()
+  (interactive)
+  (find-file "~/.dotemacs/README.md"))
+(global-set-key (kbd "C-v C-r") 'my-open-readme)
+;;}}} ================================= END ===================================
+
+
+
+;;{{{ ========================================================================
+;; 快速重新加载配置文件
+(defun my-reload-configuration ()
+  (interactive)
+  (message "Reload the configration")
+  (load-file "~/.emacs"))
+(global-set-key (kbd "C-v r") 'my-reload-configuration)
+;;}}} ================================= END ===================================
+
+
+
+;;{{{ ========================================================================
 ;; 打开.emacs的快捷方式
 (defun my-open-dot-emacs ()
   "Open the dot-emacs file."
   (interactive)
-  (find-file "~/.emacs")
-  )
+  (find-file "~/.emacs"))
 ;;}}} ================================= END ===================================
 
 

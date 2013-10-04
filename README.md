@@ -146,6 +146,15 @@
            C-x RET f CODING RET       如果 CODING 为 unix、dos 或 mac，则相应的改变当前缓冲区中换行符为LF、
                                       CRLF、CR。
 
+      （16）快速打开笔记手册
+           C-v C-n  在当前缓冲区中快速打开 docs/Emacs.Learning.Notes.txt。
+
+      （17）快速打开 README
+           C-v C-r  在当前缓冲区中快速打开 README.md，以便查看该快捷键表。
+
+      （18）快速重新加载配置文件
+           C-v r    快速重新加载 ~/.emacs。
+
     5、一些没有绑定快捷键的小功能：
       M-x my-indent-or-complete    如果当前光标在单词中间就对齐，否则就TAB。
       M-x my-stamp                 在当前位置中插入时间、用户名和系统信息。
