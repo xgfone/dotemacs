@@ -29,8 +29,10 @@
 
 ;;{{{ =========================================================================
 ;; 使用%就可以上下翻动匹配的括号；如果没有括号就输入%，类似VIM中的%键。
-;; 这个由王垠创作。
-(global-set-key "%" 'my-match-paren)
+;; 这个由王垠创作。这里没有使用 %，是因为有很多时候 % 会和括号相邻（比如：Django
+;; 中的模板标签），此时要在括号旁边输入%，还需要先输入空白，再输入%，然后再删除
+;; 空白，比较麻烦，而@很少和括号相邻。
+(global-set-key "@" 'my-match-paren)
 (defun my-match-paren (arg)
   "Go to the matching paren if on a paren; otherwise insert %.
 Argument ARG paren."
