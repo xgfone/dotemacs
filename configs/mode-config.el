@@ -190,7 +190,7 @@ PROPS are additional properties."
   ;;(c-set-style "stroustrup")
   (c-set-style "k&r")
   ;;(define-key c++-mode-map [f3] 'replace-regexp)
-)
+  )
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 ;;; C/C++语言启动时自动加载semantic对/usr/include的索引数据库
@@ -221,7 +221,14 @@ PROPS are additional properties."
 
 (add-to-list 'load-path "~/.dotemacs/lisps/emacs-for-python/")
 (load "epy-init.el")
-
+(defun my-python-insert-comment()
+  (interactive)
+  (if (interactive-p)
+      (progn
+       (beginning-of-line)
+       (insert "# -*- coding: utf-8 -*-\n"))
+    "# -*- coding: utf-8 -*-"))
+(global-set-key (kbd "C-v C-c") 'my-python-insert-comment)
 ;;}}} =========================================================================
 
 
