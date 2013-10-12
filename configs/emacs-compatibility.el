@@ -2,7 +2,7 @@
 ;;; emacs-compatibility.el
 
 ;;{{{ =========================================================================
-;; Under 24, emacs doesn't have the symbol 'defvar-local'. Here define one.
+;; Below 24, emacs doesn't have the symbol 'defvar-local'. Here define one.
 ;; But it is copied from 'subr.el' in emacs 24.3.
 (if (version< emacs-version "24.0.0")
 (defmacro defvar-local (var val &optional docstring)
