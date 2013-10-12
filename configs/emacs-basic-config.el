@@ -184,7 +184,7 @@
 ;; 跳转到某一行绑定到C-c l组合键上。
 ;;(global-set-key [(control ?v) (?l)] 'goto-line)
 (global-set-key (kbd "C-v l") 'goto-line)
-(global-set-key (kbd "<f3>") 'goto-line)
+(global-set-key (kbd "<f2>") 'goto-line)
 
 ;; 将tabify和untabify分别绑定到快捷键 C-v C-t 和 C-v t 上。
 ;; 功能：将SPACE转换成TAB、将TAB转换成SPACE。

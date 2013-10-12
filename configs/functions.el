@@ -203,6 +203,50 @@ occurence of CHAR."
 
 
 ;;{{{ =========================================================================
+;; 模拟 VIM 的正则表达式高亮搜索。绑定到全局快捷键 F3 上。
+;; 当完成搜索后，继续高亮显示的匹配部分。并且高亮显示是局部于缓冲区的。
+;; 如果想所有的高亮搜索显示，按 F4 即可。
+
+(require 'hi-lock)
+(defvar-local my-buffer-regexp-history nil)
+
+;; 从 hi-lock.el 文件中拷贝过来，即 hi-lock-face-buffer 函数
+;; 但是作了调整，即在交互模式式下不读取 face 的值，并绑定到 F3。
+(defun my-highlight-regexp (regexp &optional face)
+  "Set face of each match of REGEXP to FACE.
+Interactively, prompt for REGEXP then FACE, using a buffer-local
+history list for REGEXP and a global history list for FACE.
+
+If Font Lock mode is enabled in the buffer, it is used to
+highlight REGEXP.  If Font Lock mode is disabled, overlays are
+used for highlighting; in this case, the highlighting will not be
+updated as you type."
+  (interactive
+   (list
+    (hi-lock-regexp-okay
+       (read-regexp "Regexp to highlight" (car regexp-history) 'my-buffer-regexp-history))
+    ;;(hi-lock-read-face-name)
+  ))
+  (my-unhighlight-regexp)      ;; I added.
+  (or (facep face) (setq face 'hi-yellow))
+  (unless hi-lock-mode (hi-lock-mode 1))
+  (hi-lock-set-pattern regexp face))
+
+
+;; 取消当前缓冲区内所有高亮的搜索字符串，并绑定到全局快捷键 F4。
+(defun my-unhighlight-regexp ()
+  (interactive)
+  (dolist (x my-buffer-regexp-history)
+    (unhighlight-regexp x)))
+
+(global-set-key (kbd "<f3>") 'my-highlight-regexp)
+(global-set-key (kbd "<f4>") 'my-unhighlight-regexp)
+
+;;}}} ================================= END ===================================
+
+
+
+;;{{{ =========================================================================
 ;; 自定义自动补齐命令，如果在单词中间就补齐，否则就是tab。
 (defun my-indent-or-complete ()
   "在单词中间就补齐,否则就tab."
