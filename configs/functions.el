@@ -224,9 +224,10 @@ updated as you type."
   (interactive
    (list
     (hi-lock-regexp-okay
-       (read-regexp "Regexp to highlight" (car regexp-history) 'my-buffer-regexp-history))
+       (read-regexp "Regexp to highlight" (car regexp-history)))
     ;;(hi-lock-read-face-name)
   ))
+  (add-to-list 'my-buffer-regexp-history (car regexp-history))
   (my-unhighlight-regexp)      ;; I added.
   (or (facep face) (setq face 'hi-yellow))
   (unless hi-lock-mode (hi-lock-mode 1))
