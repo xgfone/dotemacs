@@ -47,7 +47,6 @@
 <b>Directory Structure——目录结构</b>
 
     .dotemacs/
-         backup/                               # 第三方插件备份目录，即目前没有被使用但以后将被使用的插件。
          configs/                              # 配置文件目录，其中包括内置插件和第三方插件的配置文件。
              emacs-basic-config.el             # 基本、简单的配置文件。
              emacs-config.el                   # 全功能配置文件，其将引用configs目录下所有的配置文件。
