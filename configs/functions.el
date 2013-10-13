@@ -224,11 +224,13 @@ updated as you type."
   (interactive
    (list
     (hi-lock-regexp-okay
-       (read-regexp "Regexp to highlight" (car regexp-history)))
-    ;;(hi-lock-read-face-name)
-  ))
-  (add-to-list 'my-buffer-regexp-history (car regexp-history))
-  (my-unhighlight-regexp)      ;; I added.
+      (if (version< emacs-version "24.0.0")
+          (progn
+            (read-regexp "Regexp to highlight" (car regexp-history))
+            (add-to-list 'my-buffer-regexp-history regexp))
+        (read-regexp "Regexp to highlight" (car regexp-history) 'my-buffer-regexp-history)))))
+
+  (my-unhighlight-regexp)
   (or (facep face) (setq face 'hi-yellow))
   (unless hi-lock-mode (hi-lock-mode 1))
   (hi-lock-set-pattern regexp face))
@@ -240,8 +242,8 @@ updated as you type."
   (dolist (x my-buffer-regexp-history)
     (unhighlight-regexp x)))
 
-(global-set-key (kbd "<f3>") 'my-highlight-regexp)
-(global-set-key (kbd "<f4>") 'my-unhighlight-regexp)
+(global-set-key (kbd "M-s h r") 'my-highlight-regexp)
+(global-set-key (kbd "M-s h u") 'my-unhighlight-regexp)
 
 ;;}}} ================================= END ===================================
 
