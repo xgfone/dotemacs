@@ -227,7 +227,9 @@ updated as you type."
       (if (version< emacs-version "24.0.0")
           (progn
             (read-regexp "Regexp to highlight" (car regexp-history))
-            (add-to-list 'my-buffer-regexp-history regexp))
+            (add-to-list 'my-buffer-regexp-history (car regexp-history))
+            (car my-buffer-regexp-history))
+            ;(add-to-list 'my-buffer-regexp-history regexp))
         (read-regexp "Regexp to highlight" (car regexp-history) 'my-buffer-regexp-history)))))
 
   (my-unhighlight-regexp)
