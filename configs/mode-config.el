@@ -413,40 +413,5 @@ Argument STRING pwd."
 
 ;;}}} =========================================================================
 
-
-
-;;{{{ =========================================================================
-;;{{{ ---------------------------- auto-list mode -----------------------------
-;; 对相应的文件设定相应的模式，以便正确的语法显亮
-;; 文件名用正则表达式表示，注意不要后面覆盖了前面的而引起的误会
-;; 修改这个之前先C-h v auto-mode-alist查查已有的设置
-;; 一个简单的办法设置 auto-mode-alist, 免得写很多 add-to-list
-(mapcar
- (function (lambda (setting)
-             (setq auto-mode-alist
-                   (cons setting auto-mode-alist))))
- '(
-   ("\\.\\(xml\\|rdf\\)\\'" . sgml-mode)
-   ("\\.\\([ps]?html?\\|cfm\\|asp\\)\\'" . html-helper-mode)
-   ("\\.html$" . html-helper-mode)
-   ("\\.css\\'" . css-mode)
-   ("\\.\\(emacs\\|el\\|session\\|gnus\\)\\'" . emacs-lisp-mode)
-   ("\\.wiki\\'" . emacs-wiki-mode)
-   ("\\.\\(jl\\|sawfishrc\\)\\'" . sawfish-mode)
-   ("\\.scm\\'" . scheme-mode)
-   ("\\.py\\'" . python-mode)
-   ("\\.\\(ba\\)?sh\\'" . sh-mode)
-   ("\\.l\\'" . c-mode)
-   ("\\.max\\'" . maxima-mode)
-   ;;("\\config" . fvwm-mode)
-   ("\\.fvwm2rc$" . fvwm-mode)
-   ("\\.fvwmrc$" . fvwm-mode)
-   ("\\.strokes$" . fvwm-mode)
-   ("\\.conkyrc$" . fvwm-mode)
-   ))
-
-;;}}} =========================================================================
-
-
 (provide 'mode-config)
 ;;;; mode-config.el End Here
