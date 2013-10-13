@@ -4,19 +4,29 @@
 ;;    * Srecode -— 代码生成组件。
 ;;    * EDE -— 提供工程管理相关功能;
 ;; ****************************************************************************
-;;(setq load-path (cons "~/.dotemacs/lisps/cedet/" load-path))
+(add-to-list 'load-path "~/.dotemacs/lisps/cedet/common/")
+
+(require 'cedet)
 
 ;; ----------------------------------------------------------------------------
 ;; -------------------------------- Semantic ----------------------------------
-(semantic-mode t)
+(require 'semantic-ia)
+(semantic-load-enable-excessive-code-helpers)
+(semantic-load-enable-semantic-debugging-helpers)
 
-(setq semanticdb-project-roots 
-    (list
-    (expand-file-name "/")))
 
-;; Semantic DataBase存储位置
-;;(setq semanticdb-default-save-directory
-;;      (expand-file-name "~/.emacs.d/semanticdb"))
+;; ----------------------------------------------------------------------------
+;; ---------------------------------- EDE -------------------------------------
+;; Enable EDE (Project Management) features
+(global-ede-mode 1)
+
+
+;; ----------------------------------------------------------------------------
+;; --------------------------------- Srecode ----------------------------------
+;; Enable SRecode (Template management) minor-mode.
+(load "srecode/mode")
+(global-srecode-minor-mode 1)
+
 
 ;;; Include settings
 (defconst cedet-user-include-dirs
@@ -40,18 +50,6 @@
         include-dirs))
 (setq semantic-c-dependency-system-include-path "/usr/include/")
 
-
-;; ----------------------------------------------------------------------------
-;; ---------------------------------- EDE -------------------------------------
-;; Enable EDE (Project Management) features
-(global-ede-mode 1)
-
-
-;; ----------------------------------------------------------------------------
-;; --------------------------------- Srecode ----------------------------------
-;; Enable SRecode (Template management) minor-mode.
-(load "srecode/mode")
-(global-srecode-minor-mode 1)
 
 
 ;; ----------------------------------------------------------------------------
@@ -114,7 +112,6 @@
 
 
 ;; smart complitions
-;(require 'semantic/ia)  ;;This has a question!
 (setq-mode-local c-mode semanticdb-find-default-throttle
                  '(project unloaded system recursive))
 (setq-mode-local c++-mode semanticdb-find-default-throttle
