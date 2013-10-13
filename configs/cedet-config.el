@@ -14,6 +14,8 @@
 (semantic-load-enable-excessive-code-helpers)
 (semantic-load-enable-semantic-debugging-helpers)
 
+;; Semantic DataBase存储位置
+(setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semanticdb"))
 
 ;; ----------------------------------------------------------------------------
 ;; ---------------------------------- EDE -------------------------------------
